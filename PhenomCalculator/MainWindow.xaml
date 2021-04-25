@@ -15,15 +15,15 @@
 						<ColumnDefinition Width="254*"/>
 					</Grid.ColumnDefinitions>
 					<CheckBox x:Name="N1_IceProt" Content="Ice protection" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-					<TextBox x:Name="N1_PressureAlt" HorizontalAlignment="Left" Height="23" Margin="47.333,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" Grid.Column="1"/>
+					<TextBox x:Name="N1_PressureAlt" HorizontalAlignment="Left" Height="23" Margin="47,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" Grid.Column="1"/>
 					<Label Content="Pressure Altitude&#xD;&#xA;" HorizontalAlignment="Left" Margin="37,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.194,0.199" Height="27" Grid.ColumnSpan="2"/>
 					<Label Content="Static Air Temperature" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-					<TextBox x:Name="N1_SAT" HorizontalAlignment="Left" Height="23" Margin="47.333,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" Grid.Column="1"/>
-					<Button x:Name="N1_CalculateButton" Content="Calculate N1" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="301" Click="N1_CalculateButton_Click" Grid.ColumnSpan="2"/>
-					<TextBox x:Name="N1_N1" HorizontalAlignment="Left" Height="23" Margin="47.333,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" IsEnabled="False" IsReadOnly="True" IsReadOnlyCaretVisible="True" Grid.Column="1"/>
+					<TextBox x:Name="N1_SAT" HorizontalAlignment="Left" Height="23" Margin="47,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" Grid.Column="1"/>
+					<Button x:Name="N1_CalculateButton" Content="Calculate N1" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="329" Click="N1_CalculateButton_Click" Grid.ColumnSpan="2"/>
+					<TextBox x:Name="N1_N1" HorizontalAlignment="Left" Height="23" Margin="47,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" IsEnabled="False" IsReadOnly="True" IsReadOnlyCaretVisible="True" Grid.Column="1"/>
 					<Label Content="N1" HorizontalAlignment="Left" Margin="17.333,119,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-					<Label Content="Caution!" HorizontalAlignment="Left" Margin="17.333,150,0,0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="1.025,0.577" Grid.Column="1"/>
-					<TextBlock HorizontalAlignment="Left" Margin="10,170,0,0" TextWrapping="Wrap" Text="The above value is interpolated from Aerobask performance tables. The value should roughly be around ±0.3% of the value recommended in the manuals." VerticalAlignment="Top" Height="66" Width="270" Grid.ColumnSpan="2"/>
+					<Label Content="Caution!" Margin="0,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.577" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"/>
+					<TextBlock HorizontalAlignment="Left" Margin="10,170,0,0" TextWrapping="Wrap" Text="The above value is interpolated from Aerobask performance tables. The value should roughly be around ±0.3% of the value recommended in the manuals." VerticalAlignment="Top" Height="66" Width="329" Grid.ColumnSpan="2"/>
 					<Label Content="FOR FLIGHT SIMULATION ONLY" Margin="0,241,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
 
 				</Grid>
