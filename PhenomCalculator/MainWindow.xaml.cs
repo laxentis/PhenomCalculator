@@ -81,58 +81,54 @@ namespace PhenomCalculator
             {
                 pressureAlt = 1000;
                 N1_PressureAlt.Text = "1000";
-                MessageBox.Show("Invalid pressure altitude. Assuming 1000 ft.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _ = MessageBox.Show("Invalid pressure altitude. Assuming 1000 ft.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             if (!double.TryParse(N1_SAT.Text, out double SAT))
             {
                 SAT = 15;
                 N1_SAT.Text = "15";
-                MessageBox.Show("Invalid SAT. Assuming ISA 15°C", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _ = MessageBox.Show("Invalid SAT. Assuming ISA 15°C", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             if (SAT > 5 && N1_IceProt.IsChecked == true)
             {
                 N1_IceProt.IsChecked = false;
-                MessageBox.Show("SAT above 5°C. Disable Ice Protection for T/O", "Ice Prot not required", MessageBoxButton.OK, MessageBoxImage.Information);
+                _ = MessageBox.Show("SAT above 5°C. Disable Ice Protection for T/O", "Ice Prot not required", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             if (pressureAlt > 10000 && N1_IceProt.IsChecked == true)
             {
                 pressureAlt = 10000;
                 N1_PressureAlt.Text = "10000";
-                MessageBox.Show("Pressure altitude above maximum with ice protection. Limiting to 10000 ft.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _ = MessageBox.Show("Pressure altitude above maximum with ice protection. Limiting to 10000 ft.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             if (pressureAlt < -1000)
             {
                 pressureAlt = -1000;
                 N1_PressureAlt.Text = "-1000";
-                MessageBox.Show("Pressure altitude below minimum. Limiting to -1000 ft.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                _ = MessageBox.Show("Pressure altitude below minimum. Limiting to -1000 ft.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             } else if (pressureAlt > 14000)
             {
                 pressureAlt = 14000;
                 N1_PressureAlt.Text = "14000";
-                MessageBox.Show("Pressure altitude above maximum. Limiting to 14000 ft.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _ = MessageBox.Show("Pressure altitude above maximum. Limiting to 14000 ft.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             if ( SAT < -40)
             {
                 SAT = -40;
                 N1_SAT.Text = "-40";
-                MessageBox.Show("SAT below minimum. Limiting to -40°C.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _ = MessageBox.Show("SAT below minimum. Limiting to -40°C.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             } else if (SAT > 45)
             {
                 SAT = 45;
                 N1_SAT.Text = "45";
-                MessageBox.Show("SAT above maximum. Limiting to 45°C.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _ = MessageBox.Show("SAT above maximum. Limiting to 45°C.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            if (SAT > 20 && pressureAlt > 12000 || SAT > 25 && pressureAlt > 10000 || SAT > 30 && pressureAlt > 7000 || SAT > 35 && pressureAlt > 5000 || SAT > 40 && pressureAlt > 2000)
+            if ((SAT > 20 && pressureAlt > 12000) || (SAT > 25 && pressureAlt > 10000) || (SAT > 30 && pressureAlt > 7000) || (SAT > 35 && pressureAlt > 5000) || (SAT > 40 && pressureAlt > 2000))
             {
-                MessageBox.Show("Parameters exceed aircraft performance. Take-off not recommended.", "Performance Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                _ = MessageBox.Show("Parameters exceed aircraft performance. Take-off not recommended.", "Performance Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 N1_N1.Text = "NO TAKE-OFF";
                 return;
             }
-            double estimatedN1;
-            if (N1_IceProt.IsChecked == true)
-                estimatedN1 = getN1IceProt(pressureAlt, SAT);
-            else
-                estimatedN1 = getN1NoIceProt(pressureAlt, SAT);
+            double estimatedN1 = N1_IceProt.IsChecked == true ? getN1IceProt(pressureAlt, SAT) : getN1NoIceProt(pressureAlt, SAT);
             N1_N1.Text = estimatedN1.ToString("0." + new string('#', 2));
         }
 
